@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stardew Valley - Checklist 100%</title>
+  <style>
+    :root {
+      --bg: #f7f2e7;
+      --card: #fffaf0;
+      --border: #d9c7a2;
+      --accent: #5c8d4d;
+      --accent-dark: #406336;
+      --text: #2f2a24;
+      --muted: #6e655b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      padding: 24px 16px 12px;
+      text-align: center;
+      background: linear-gradient(to bottom, #f2e4c8, #f7f2e7);
+      border-bottom: 2px solid var(--border);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .progress-card {
+      flex: 1 1 260px;
+    }
+
+    .actions-card {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 14px;
+      background: #e8dcc5;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    button {
+      border: none;
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: var(--accent-dark);
+    }
+
+    .tabs-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .tab-button {
+      background: #efe3c9;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .tab-button.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    #tab-content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      min-height: 240px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .loading {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .tab-section h2 {
+      margin-top: 0;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fffdf7;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Stardew Valley - Checklist 100%</h1>
+    <p>Base GitHub Pages avec onglets séparés, données externes et scripts dédiés.</p>
+  </header>
+
+  <main class="container">
+    <div class="topbar">
+      <div class="card progress-card">
+        <strong>Progression globale</strong>
+        <div id="progressText" class="muted">0 / 0 objectifs complétés</div>
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="card actions-card">
+        <button id="checkAllBtn" type="button">Tout cocher</button>
+        <button id="resetBtn" type="button">Réinitialiser</button>
+      </div>
+    </div>
+
+    <nav id="tabsNav" class="tabs-nav"></nav>
+
+    <section id="tab-content">
+      <div class="loading">Chargement...</div>
+    </section>
+  </main>
+
+  <footer>
+    Données sauvegardées localement dans le navigateur.
+  </footer>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/tabs.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
