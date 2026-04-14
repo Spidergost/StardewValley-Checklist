@@ -55,6 +55,11 @@ async function renderTab(tabId) {
   try {
     const html = await loadTabContent(tab.file);
     tabContent.innerHTML = html;
+
+    if (tab.id === "collections" && typeof window.initCollectionsTab === "function") {
+      await window.initCollectionsTab();
+    }
+
     bindCheckboxes();
     updateProgress();
   } catch (error) {
