@@ -3,10 +3,11 @@
   <p class="muted">Artéfacts, minéraux, poissons et autres collections.</p>
 
   <div class="checklist">
-    <label class="check-item">
-      <input type="checkbox" data-check-id="collections-artifacts" />
-      <span>Trouver tous les artéfacts</span>
-    </label>
+    <details class="collection-group" open>
+      <summary>Trouver tous les artéfacts</summary>
+      <p class="muted">Liste chargée depuis <code>data/artifacts_fr</code>.</p>
+      <div id="artifacts-list" class="checklist"></div>
+    </details>
 
     <label class="check-item">
       <input type="checkbox" data-check-id="collections-minerals" />
